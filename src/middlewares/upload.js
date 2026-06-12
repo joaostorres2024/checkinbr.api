@@ -21,13 +21,16 @@ const storage = multer.diskStorage({
 })
 
 const fileFilter = (_req, file, cb) => {
-  const tiposPermitidos = /jpeg|jpg|png|webp/
-  const ok = tiposPermitidos.test(path.extname(file.originalname).toLowerCase())
+  const tiposPermitidos = /jpeg|jpg|png|webp|avif/
+
+  const ok = tiposPermitidos.test(
+    path.extname(file.originalname).toLowerCase()
+  )
 
   if (ok) {
     cb(null, true)
   } else {
-    cb(new Error('Formato de imagem inválido. Use JPG, PNG ou WEBP.'))
+    cb(new Error('Formato de imagem inválido. Use JPG, PNG, WEBP ou AVIF.'))
   }
 }
 
