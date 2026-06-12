@@ -1,17 +1,7 @@
-const express = require('express')
-
-const app = express()
-
-app.use(express.json())
-
-app.get('/', (req, res) => {
-  res.json({
-    mensagem: 'API CheckinBR funcionando!'
-  })
-})
+const app  = require('./src/app')
 
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`)
+  console.log(`✅  API rodando em http://localhost:${PORT}`)
 })
