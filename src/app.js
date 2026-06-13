@@ -4,9 +4,11 @@ const express          = require('express')
 const cors             = require('cors')
 const path             = require('path')
 
-const authRoutes       = require('./routes/authRoutes')
-const imoveisRoutes    = require('./routes/imoveisRoutes')
+const authRoutes        = require('./routes/authRoutes')
+const imoveisRoutes     = require('./routes/imoveisRoutes')
 const comodidadesRoutes = require('./routes/comodidadesRoutes')
+const topImoveisRoutes  = require('./routes/topImoveisRoutes')
+const editComodidadesRoutes = require('./routes/editComodidadesRoutes')
 
 const app = express()
 
@@ -21,6 +23,8 @@ app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')))
 app.use('/api/auth', authRoutes)
 app.use('/api/imoveis', imoveisRoutes)
 app.use('/api/comodidades', comodidadesRoutes)
+app.use('/api/top-imoveis', topImoveisRoutes)
+app.use('/api/edit-comodidades', editComodidadesRoutes)
 
 // ── Health check ───────────────────────────────────────────────
 app.get('/health', (_req, res) => res.json({ status: 'ok' }))
