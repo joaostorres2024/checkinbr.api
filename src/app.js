@@ -9,6 +9,8 @@ const imoveisRoutes     = require('./routes/imoveisRoutes')
 const comodidadesRoutes = require('./routes/comodidadesRoutes')
 const topImoveisRoutes  = require('./routes/topImoveisRoutes')
 const editComodidadesRoutes = require('./routes/editComodidadesRoutes')
+const datasBloqueadasRoutes = require('./routes/datasBloqueadasRoutes')
+const parceirosRoutes = require('./routes/parceirosRoutes')
 
 const app = express()
 
@@ -25,6 +27,8 @@ app.use('/api/imoveis', imoveisRoutes)
 app.use('/api/comodidades', comodidadesRoutes)
 app.use('/api/top-imoveis', topImoveisRoutes)
 app.use('/api/edit-comodidades', editComodidadesRoutes)
+app.use('/api', datasBloqueadasRoutes)
+app.use('/api/parceiros', parceirosRoutes)
 
 // ── Health check ───────────────────────────────────────────────
 app.get('/health', (_req, res) => res.json({ status: 'ok' }))
